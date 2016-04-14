@@ -1,14 +1,19 @@
 class base::install {
 
-  file { "/etc/hosts":
-    content => template('base/hosts.erb'),
-    owner   => root,
-    group   => root,
-    mode    => 644,
+#  file { "/etc/hosts":
+#    content => template('base/hosts.erb'),
+#    owner   => root,
+#    group   => root,
+#    mode    => 644,
+#  }
+
+  file { "/etc/facter/":
+    ensure => directory,
   }
 
   file { "/etc/facter/facts.d/":
     ensure => directory,
+    require => File[ "/etc/facter/" ],
   }
 
   file { "/etc/facter/facts.d/environment.sh":
@@ -19,9 +24,10 @@ class base::install {
   file { "/etc/facter/facts.d/baseline.txt":
     source => "puppet:///modules/base/baseline.txt",
   }
-  
+
   file { "/etc/facter/facts.d/role.txt":
-    content => template('base/role.txt.erb'),
-  }
+#    content => template('base/role.txt.erb'),
+    source => "puppet:///modules/base/role.txt",
+  }  
 
 }
