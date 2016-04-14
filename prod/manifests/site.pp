@@ -1,3 +1,5 @@
+$hostgroup = regsubst($clientcert, '-*\d+$', '')
+
 node default {
   include base
 }
