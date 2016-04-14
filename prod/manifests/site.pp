@@ -7,14 +7,14 @@ node basenode {
   include base
 }
 
-node /^app(.*)$/ inherits base {
+node /^app(.*)$/ inherits basenode {
   include web
 }
 
-node /^proxy(.*)$/ inherits base {
+node /^proxy(.*)$/ inherits basenode {
   include proxy
 }
 
-node /^common(.*)$/ inherits base {
+node /^common(.*)$/ inherits basenode {
   include db
 }
