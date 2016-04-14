@@ -5,6 +5,7 @@ class base::install {
     owner   => root,
     group   => root,
     mode    => 644,
+    require => File["/etc/facter/facts.d/environment.sh"],
   }
 
   file { "/etc/facter/facts.d/":
