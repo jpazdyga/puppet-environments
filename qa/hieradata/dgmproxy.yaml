@@ -1,3 +1,4 @@
 ---
 
-max_memory size: 3G
+max_memory_size: 3G
+dns_servers: 10.1.1.10
