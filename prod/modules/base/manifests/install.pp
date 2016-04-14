@@ -1,7 +1,7 @@
 class base::install {
 
-  file { "/etc/hosts":
-    content => template('base/hosts.erb'),
+  file { "/etc/test.txt":
+    content => hiera('max_memory_size'),
     owner   => root,
     group   => root,
     mode    => 644,
