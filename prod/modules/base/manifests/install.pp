@@ -1,12 +1,12 @@
 class base::install {
 
-#  file { "/etc/hosts":
-#    content => template('base/hosts.erb'),
-#    owner   => root,
-#    group   => root,
-#    mode    => 644,
-#    require => File["/etc/facter/facts.d/environment.sh"],
-#  }
+  file { "/etc/hosts":
+    content => template('base/hosts.erb'),
+    owner   => root,
+    group   => root,
+    mode    => 644,
+    require => File["/etc/facter/facts.d/environment.sh"],
+  }
 
   file { "/etc/facter/":
     ensure => directory,
