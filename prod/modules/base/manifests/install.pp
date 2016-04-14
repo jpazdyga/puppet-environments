@@ -13,7 +13,7 @@ class base::install {
 
   file { "/etc/facter/facts.d/environment.sh":
     source => "puppet:///modules/base/environment.sh",
-    mode = 755,
+    mode => 755,
   }
 
   file { "/etc/facter/facts.d/baseline.txt":
