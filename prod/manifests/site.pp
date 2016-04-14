@@ -1,6 +1,9 @@
 $hostgroup = regsubst($clientcert, '-*\d+$', '')
 
-node default {
+node default inherist basenode{
+}
+
+node basenode {
   include base
 }
 
