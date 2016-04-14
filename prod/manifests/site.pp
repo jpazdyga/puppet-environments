@@ -1,7 +1,15 @@
-node "prod01-web01.lascalia.com" {
+node default {
+  include base
+}
+
+node /^app(.*)$/ inherits base {
   include web
 }
 
-node "prod01-db01.lascalia.com" {
+node /^proxy(.*)$/ inherits base {
+  include proxy
+}
+
+node /^common(.*)$/ inherits base {
   include db
 }
