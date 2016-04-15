@@ -1,5 +1,7 @@
 class base::configure {
 
+  include base::selinux
+
   file { "/etc/dgm.properties":
     ensure => present,
   } 
