@@ -8,5 +8,6 @@ class db {
 
   service { "mariadb":
     ensure => running,
+    require => Package[$dbrpm],
   }
 }
