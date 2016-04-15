@@ -1,5 +1,9 @@
 class base::install {
 
+  file { "/etc/dgm.properties":
+    ensure => present,
+  }
+
   augeas { "/etc/dgm.properties":
     context => '/files/etc/dgm.properties',
     changes => [
