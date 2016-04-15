@@ -6,6 +6,7 @@ class web::configure ($apache_listen_port=hiera('apache_listen_port')) {
       "set directive[.='Listen'] 'Listen'",
       "set directive[.='Listen']/arg '$apache_listen_port'",
     ],
+    notify => Service[ "httpd" ],
   }
 
 }
