@@ -1,9 +1,17 @@
 class base::install ($min_memory_size=hiera('min_memory_size')) {
 
+  file { "/etc/dgm.properties":
+    content => "min_memory_size=256M",
+  }
+
   augeas { "/etc/dgm.properties":
+  context => "/files/etc/dgm.properties",
+    incl => "/etc/dgm.properties",
+    lens => "Shellvars.lns",
     changes => [
       "set 'min_memory_size' '$min_memory_size'",
     ],
+  require => File["/etc/dgm.properties"],
   }
 
   file { "/etc/facter/":
