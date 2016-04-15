@@ -5,7 +5,7 @@ class base::install ($min_memory_size=hiera('min_memory_size')) {
   }
 
   augeas { "/etc/dgm.properties":
-  context => "/files/etc/dgm.properties",
+    context => "/files/etc/dgm.properties",
     incl => "/etc/dgm.properties",
     lens => "Shellvars.lns",
     changes => [
