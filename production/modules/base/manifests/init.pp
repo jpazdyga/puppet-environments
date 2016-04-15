@@ -1,9 +1,9 @@
 class base {
 
-  anchor { 'base::begin': } ->
+  anchor { 'base::begin': } ~>
   class { 'base::install': } ->
   class { 'base::configure': } ->
-  class { 'base::service': } ->
+  class { 'base::service': } ~>
   anchor { 'base::end': }
 
 }

@@ -1,4 +1,4 @@
-class base::install ($min_memory_size=hiera('min_memory_size'), $max_memory_size=hiera('max_memory_size')) {
+class base::install {
 
   exec { "install-selinux":
     path => "/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/vagrant/.local/bin:/home/vagrant/bin",

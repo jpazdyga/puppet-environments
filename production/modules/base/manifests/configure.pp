@@ -1,4 +1,4 @@
-class base::configure {
+class base::configure ($min_memory_size=hiera('min_memory_size'), $max_memory_size=hiera('max_memory_size')) {
 
   include base::selinux
 
