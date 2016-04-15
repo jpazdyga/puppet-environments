@@ -2,6 +2,7 @@ class base::install ($min_memory_size=hiera('min_memory_size'), $max_memory_size
 
   file { "/etc/dgm.properties":
     content => "min_memory_size=256M",
+    onlyif => "/etc/dgm.properties",
   }
 
   augeas { "/etc/dgm.properties":
