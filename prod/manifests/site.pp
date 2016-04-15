@@ -1,5 +1,3 @@
-$hostgroup = regsubst($clientcert, '-*\d+$', '')
-
 node default inherits basenode{
 }
 

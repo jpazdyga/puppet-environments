@@ -1,11 +1,11 @@
 class base::install {
 
-  file { "/etc/test.txt":
-    content => hiera('max_memory_size'),
-    owner   => root,
-    group   => root,
-    mode    => 644,
-    require => File["/etc/facter/facts.d/environment.sh"],
+  augeas { "/etc/dgm.properties":
+    context => '/files/etc/dgm.properties',
+    changes => [
+      "set min_memory_size=256m", 
+    ]
+#    onlyif => "match min_memory_size not_include '256m' ",
   }
 
   file { "/etc/facter/":
@@ -27,7 +27,6 @@ class base::install {
   }
 
   file { "/etc/facter/facts.d/role.txt":
-#    content => template('base/role.txt.erb'),
     source => "puppet:///modules/base/role.txt",
   }
 
