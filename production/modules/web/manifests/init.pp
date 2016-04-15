@@ -1,13 +1,9 @@
 class web {
 
-  $webrpm = [ "php", "php-mysqlnd", "httpd" ]
-
-  package { $webrpm: 
-    ensure => latest,
-  }
-
-  service { "httpd":
-    ensure => running,
-  }
+  anchor { 'web::begin': } ->
+  class { 'web::install': } ->
+  class { 'web::configure': } ->
+  class { 'web::service': } ->
+  anchor { 'web::end': }
 
 }
