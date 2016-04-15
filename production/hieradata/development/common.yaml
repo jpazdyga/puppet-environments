@@ -1,0 +1,4 @@
+---
+min_memory_size: 512M
+max_memory_size: 1G
+apache_listen_port: "8088"

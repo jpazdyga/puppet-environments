@@ -5,7 +5,7 @@ class master {
     provider => yum,
   }
 
-  package { "git-all":
+  package { "git":
     ensure => latest,
     provider => yum,
   }
