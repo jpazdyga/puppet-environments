@@ -1,4 +1,4 @@
-class base::install ($min_memory_size=hiera('min_memory_size')) {
+class base::install ($min_memory_size=hiera('min_memory_size'), $max_memory_size=hiera('max_memory_size')) {
 
   file { "/etc/dgm.properties":
     content => "min_memory_size=256M",
@@ -10,6 +10,7 @@ class base::install ($min_memory_size=hiera('min_memory_size')) {
     lens => "Shellvars.lns",
     changes => [
       "set 'min_memory_size' '$min_memory_size'",
+      "set 'max_memory_size' '$max_memory_size'",
     ],
   require => File["/etc/dgm.properties"],
   }
