@@ -1,4 +1,4 @@
 ---
-
 min_memory_size: 512M
-dns_servers: 10.1.1.10
+max_memory_size: 1G
+apache_listen_port: "8088"
