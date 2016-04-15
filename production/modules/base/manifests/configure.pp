@@ -23,10 +23,16 @@ class base::configure ($min_memory_size=hiera('min_memory_size'), $max_memory_si
     ensure => directory,
     require => File[ "/etc/facter/" ],
   } 
-  
-  file { "/etc/facter/facts.d/environment.sh":
-    source => "puppet:///modules/base/environment.sh",
-    mode => 755,
+ 
+### This is for dynamic node tagging, we are using static values to assign hosts to environments
+# 
+#  file { "/etc/facter/facts.d/environment.sh":
+#    source => "puppet:///modules/base/environment.sh",
+#    mode => 755,
+#  }
+
+  file { "/etc/facter/facts.d/environment.txt":
+    source => "puppet:///modules/base/environment.txt",
   }
 
   file { "/etc/facter/facts.d/baseline.txt":
