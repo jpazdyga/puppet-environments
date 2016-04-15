@@ -1,3 +1,3 @@
-class { "selinux":
+class base::selinux {
   mode => 'permissive'
 }
