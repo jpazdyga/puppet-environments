@@ -4,9 +4,10 @@ class base::install {
     ensure => present,
   }
 
-    augeas { '/etc/dgm.properties':
+  augeas { '/etc/dgm.properties':
     changes => 'set "min_memory_size" "256m"',
 #    onlyif => "match min_memory_size not_include '256m' ",
+    require => File["/etc/dgm.properties"], 
   }
 
   file { "/etc/facter/":
