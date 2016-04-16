@@ -32,7 +32,8 @@ class base::configure ($min_memory_size=hiera('min_memory_size'), $max_memory_si
 #  }
 
   file { "/etc/facter/facts.d/environment.txt":
-    source => "puppet:///modules/base/environment.txt",
+#    source => "puppet:///modules/base/environment.txt",
+    content => "environment=production",
     replace => "no",
   }
 
