@@ -41,6 +41,8 @@ class base::configure ($min_memory_size=hiera('min_memory_size'), $max_memory_si
     replace => "no",
   }
 
+### This should be done by case and content to correctly bootstrap the value. But for now, it's hardcoded, so leaving as is without overwriting.
+#
   file { "/etc/facter/facts.d/role.txt":
     source => "puppet:///modules/base/role.txt",
     replace => "no",
