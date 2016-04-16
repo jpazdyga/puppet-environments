@@ -33,7 +33,7 @@ class base::configure ($min_memory_size=hiera('min_memory_size'), $max_memory_si
 
   file { "/etc/facter/facts.d/environment.txt":
     source => "puppet:///modules/base/environment.txt",
-    onlyif => ""/usr/bin/test -s /etc/facter/facts.d/environment.txt",
+    onlyif => "/usr/bin/test -s /etc/facter/facts.d/environment.txt",
   }
 
   file { "/etc/facter/facts.d/baseline.txt":
