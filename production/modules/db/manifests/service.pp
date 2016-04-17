@@ -4,6 +4,7 @@ class db::service {
 #
   service { "mariadb":
     ensure => running,
+    require => Package[mariadb],
   }
 
 }
