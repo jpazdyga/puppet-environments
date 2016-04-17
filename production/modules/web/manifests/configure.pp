@@ -1,5 +1,7 @@
 class web::configure ($apache_listen_port=hiera('apache_listen_port')) {
 
+### Set apache to listen on the port specified in hiera.
+#
   augeas { "/etc/httpd/conf/httpd.conf":
     context => "/files/etc/httpd/conf/httpd.conf",
     changes => [
