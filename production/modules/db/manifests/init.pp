@@ -1,13 +1,9 @@
 class db {
 
-  $dbrpm = [ "mariadb-server", "mariadb-libs", "mariadb" ]
+  anchor { 'db::begin': } ~>
+  class { 'db::install': } ->
+  class { 'db::configure': } ->
+  class { 'db::service': } ~>
+  anchor { 'db::end': }
 
-  package { $dbrpm:
-    ensure => latest,
-  }
-
-  service { "mariadb":
-    ensure => running,
-    require => Package[$dbrpm],
-  }
 }
