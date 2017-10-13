@@ -1,4 +1,6 @@
-class web::configure ($apache_listen_port=hiera('apache_listen_port')) {
+class web::configure {
+
+  $apache_listen_port = 80
 
 ### Set apache to listen on the port specified in hiera.
 #
